@@ -13,9 +13,9 @@
 
 前台客戶訂單 /checkoutorder
 
-  前台填寫訂單資訊 /orderfinish/:orderid'
+前台填寫訂單資訊 /orderfinish/:orderid'
 
-    購物成功 /ordersuccess
+購物成功 /ordersuccess
 
 ## 後台管理頁面
 (驗證)登入管理頁面 /login
