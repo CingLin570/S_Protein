@@ -207,7 +207,6 @@ export default {
       }).catch((error) => {
         loader.hide()
         const errorData = error.response.data.errors
-        console.log(error.response)
         if (errorData) {
           errorData.code.forEach((err) => {
             this.$bus.$emit('message:push',
@@ -244,8 +243,7 @@ export default {
         const errorData = error.response.data.errors
         errorData.forEach((err) => {
           this.$bus.$emit('message:push',
-            `建立訂單失敗惹，好糗Σ( ° △ °|||)︴
-          ${err}`,
+            `建立訂單失敗${err}`,
             'danger')
         })
         this.isLoading = false

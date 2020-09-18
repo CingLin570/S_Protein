@@ -27,7 +27,7 @@
                       <div class="input-group-prepend justify-content-center">
                         <button class="btn btn-outline-dark border-0 p-1"
                         type="button" id="button-addon1"
-                        @click="quantityUpdata(item.product.id, item.quantity - 1)" :disabled="item.quantity === 1">
+                        @click="quantityUpdate(item.product.id, item.quantity - 1)" :disabled="item.quantity === 1">
                           <i class="fas fa-minus"></i>
                         </button>
                       </div>
@@ -35,7 +35,7 @@
                       <div class="input-group-append justify-content-center">
                         <button class="btn btn-outline-dark border-0 p-1"
                         type="button" id="button-addon2"
-                        @click="quantityUpdata(item.product.id, item.quantity + 1)">
+                        @click="quantityUpdate(item.product.id, item.quantity + 1)">
                           <i class="fas fa-plus"></i>
                         </button>
                       </div>
@@ -120,28 +120,33 @@ export default {
         this.isLoading = false
       })
     },
-    quantityUpdata (id, num) {
-      this.isLoading = true
+    quantityUpdate (id, num) {
+      const loader = this.$loading.show()
       const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}/ec/shopping`
       const data = {
         product: id,
         quantity: num
       }
       this.$http.patch(url, data).then((response) => {
+        loader.hide()
         this.cartTotal = 0
         this.cartQuantity = 0
         this.getCart()
       })
     },
     removeCartItem (id) {
+      const loader = this.$loading.show()
       const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}/ec/shopping/${id}`
-      this.isLoading = true
       this.$http.delete(url).then(() => {
+        loader.hide()
         this.cartTotal = 0
         this.cartQuantity = 0
         this.getCart()
-      }).catch((err) => {
-        console.log(err.data)
+      }).catch(() => {
+        loader.hide()
+        this.$bus.$emit('message:push',
+          '刪除產品失敗',
+          'danger')
       })
     }
   }
