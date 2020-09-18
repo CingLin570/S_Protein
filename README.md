@@ -11,7 +11,11 @@
   
 購物車 /cart
 
-購物成功
+前台客戶訂單 /checkoutorder
+
+前台填寫訂單資訊 /orderfinish/:orderid'
+
+購物成功 /ordersuccess
 
 ## 後台管理頁面
 (驗證)登入管理頁面 /login
@@ -20,7 +24,13 @@
 
 優惠卷管理頁面 /admin/coupons
 
-訂單管理頁面
+圖片儲存庫頁面 /admin/storages
+
+客戶訂單明細頁面 /admin/detail
+
+模擬訂單頁面 /admin/order
+
+用戶訂單列表 /admin/customer_checkout/:orderId
 
 ### (vue頁面建立流程)
 
