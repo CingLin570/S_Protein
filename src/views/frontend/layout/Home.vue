@@ -5,7 +5,7 @@
         <thead>
           <tr>
             <th scope="col" class="d-flex justify-content-between align-items-center">
-              <span>主選單</span>
+              <span class="text-white">主選單</span>
               <button type="button" class="asideClose btn">
                 <i class="fas fa-times"></i>
               </button>
@@ -51,7 +51,7 @@
           >S Protein</a>
           <ul class="d-none d-md-flex justify-content-around list-unstyled m-0">
             <li class="px-2 py-3">
-              <router-link to="/" class="homeLink text-dark h5 m-0">首頁</router-link>
+              <router-link to="/"  class="homeLink text-dark h5 m-0">首頁</router-link>
             </li>
             <li class="px-2 py-3">
               <router-link to="/about" class="homeLink text-dark h5 m-0">關於我們</router-link>
@@ -68,9 +68,9 @@
           </ul>
           <ul class="d-flex justify-content-center align-items-center ml-auto mb-0 list-unstyled">
             <li class="mr-3 d-md-none">
-              <a href="#" id="aside">
+              <button type="button" class="btn" @click.prevent="asideToggle">
                 <i class="fas fa-align-justify fa-2x text-dark border border-dark p-2"></i>
-              </a>
+              </button>
             </li>
             <li>
               <a class="position-relative" href="#" id="cart">
@@ -83,14 +83,14 @@
       </nav>
       <div class="cart" id="cartList">
         <div>
-          <div class="card card-body rounded-0 px-0 pt-3 pb-0 border border-primary" v-if="cartQuantity">
+          <div class="card card-body rounded-0 px-0 pt-3 pb-0 border border-primary" v-if="cartQuantity > 0">
             <span class="h5 mb-0 text-center">已選擇商品</span>
             <div class="cartList">
               <div class="container-fluid">
                 <div class="cartItem pt-2" v-for="item in cart" :key="item.product.id">
                   <div class="row mb-3">
                     <div class="col-5">
-                      <img :src="item.product.imageUrl" st class="img-fluid" alt />
+                      <img :src="item.product.imageUrl" class="img-fluid" alt=""/>
                     </div>
                     <div class="col-7">
                       <div class="text-left d-flex flex-column justify-content-between h-100">
@@ -125,6 +125,7 @@
 <script type="module">
 import $ from 'jquery'
 export default {
+  name: 'Home',
   data () {
     return {
       cart: [],
@@ -134,8 +135,10 @@ export default {
   },
   created () {
     this.$bus.$on('updateCart', () => {
+      this.getCarticon()
+    })
+    this.$bus.$on('removeCart', () => {
       this.getCart()
-      $('#cartList').addClass('cartList')
     })
     this.getCart()
   },
@@ -158,26 +161,36 @@ export default {
       event.preventDefault()
       $('#home').removeClass('open')
     })
-    $('#aside').click(function (event) {
-      event.preventDefault()
-      $('#home').toggleClass('open')
-    })
     $('#cart').click(function (event) {
       event.preventDefault()
       $('#cartList').toggleClass('cartList')
     })
-    this.$http.get(`${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}/ec/products`)
-      .then((response) => {
-        this.isLoading = false
-      })
   },
   beforeDestroy () {
     this.$bus.$off('updateCart')
+    this.$bus.$off('removeCart')
   },
   methods: {
+    asideToggle () {
+      $('#home').toggleClass('open')
+    },
     goCart () {
       this.$router.push('/cart')
       $('#cartList').removeClass('cartList')
+    },
+    getCarticon () {
+      this.cartTotal = 0
+      this.cartQuantity = 0
+      const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}/ec/shopping`
+      this.$http.get(url)
+        .then((response) => {
+          this.cart = response.data.data
+          this.cart.forEach((item) => {
+            this.cartTotal += (item.product.price * item.quantity)
+            this.cartQuantity += item.quantity
+          })
+          $('#cartList').addClass('cartList')
+        })
     },
     getCart () {
       this.cartTotal = 0
