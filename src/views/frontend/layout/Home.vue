@@ -83,7 +83,7 @@
       </nav>
       <div class="cart" id="cartList">
         <div>
-          <div class="card card-body rounded-0 px-0 pt-3 pb-0 border" v-if="cartQuantity">
+          <div class="card card-body rounded-0 px-0 pt-3 pb-0 border border-primary" v-if="cartQuantity">
             <span class="h5 mb-0 text-center">已選擇商品</span>
             <div class="cartList">
               <div class="container-fluid">
@@ -109,7 +109,7 @@
             </div>
             <button type="button" class="btn btn-primary rounded-0" @click="goCart">前去購買</button>
           </div>
-          <div class="card card-body rounded-0 py-5 border-0" v-else>
+          <div class="card card-body rounded-0 py-5 border border-primary" v-else>
             <span class="h5 text-center">您未選擇商品</span>
           </div>
         </div>
@@ -124,20 +124,6 @@
 
 <script type="module">
 import $ from 'jquery'
-$(document).ready(function () {
-  $(window).scroll(function () {
-    var scrollPos = $(window).scrollTop()
-    $('#navbar').each(function () {
-      if (scrollPos > 20) {
-        $('#navbar').removeClass('bg-transparent')
-        $('#navbar').addClass('bg-light')
-      } else {
-        $('#navbar').removeClass('bg-light')
-        $('#navbar').addClass('bg-transparent')
-      }
-    })
-  })
-})
 export default {
   data () {
     return {
@@ -154,6 +140,20 @@ export default {
     this.getCart()
   },
   mounted () {
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        var scrollPos = $(window).scrollTop()
+        $('#navbar').each(function () {
+          if (scrollPos > 20) {
+            $('#navbar').removeClass('bg-transparent')
+            $('#navbar').addClass('bg-light')
+          } else {
+            $('#navbar').removeClass('bg-light')
+            $('#navbar').addClass('bg-transparent')
+          }
+        })
+      })
+    })
     $('.asideClose').click(function (event) {
       event.preventDefault()
       $('#home').removeClass('open')
