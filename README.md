@@ -42,6 +42,27 @@
 
 使用的是絕對路徑，必須到vue ui設定裡更改(公開路徑)，改成  /hexschool-jsClass/demo_project/dist/
 
+## 使用技術
+
+1.Vue CLI 4
+2.Vue Router
+3.Vue Components
+4.RESTful APIs
+5.RWD
+6.Bootstrap 4
+7.JavaScript (ES6)
+8.ESlint (Standard)
+
+## 使用 Plugins
+
+AOS
+Bootstrap-Vue
+Vue-awesome-swiper
+Vue-axios
+Vue-loading-overlay
+Vue-backtotop
+Vue-step-progress
+
 ## Project setup
 ```
 npm install
