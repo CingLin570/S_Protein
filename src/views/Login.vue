@@ -79,11 +79,10 @@ export default {
           this.$router.push('/admin/products')
         }).catch((error) => {
           this.$bus.$emit('message:push',
-            `登入失敗惹，好糗Σ( ° △ °|||)︴
+            `登入失敗
             ${error}`,
             'danger')
           this.isLoading = false
-          console.log(error)
         })
     }
   }
