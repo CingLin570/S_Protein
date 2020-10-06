@@ -139,7 +139,6 @@ $(document).ready(function () {
   })
 })
 export default {
-  name: 'Home',
   data () {
     return {
       cart: [],
