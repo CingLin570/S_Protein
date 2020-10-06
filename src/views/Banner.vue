@@ -53,6 +53,19 @@
   </div>
 </template>
 
+<script>
+import SwiperModel from '@/components/frontend/Swiper.vue'
+import Footer from '@/components/frontend/Footer.vue'
+import HotProducts from '@/components/frontend/HotProducts.vue'
+export default {
+  components: {
+    SwiperModel,
+    Footer,
+    HotProducts
+  }
+}
+</script>
+
 <style lang="scss">
 [data-aos] {
         visibility: hidden;
@@ -96,16 +109,3 @@
   }
 }
 </style>
-
-<script>
-import SwiperModel from '@/components/frontend/Swiper.vue'
-import Footer from '@/components/frontend/Footer.vue'
-import HotProducts from '@/components/frontend/HotProducts.vue'
-export default {
-  components: {
-    SwiperModel,
-    Footer,
-    HotProducts
-  }
-}
-</script>
