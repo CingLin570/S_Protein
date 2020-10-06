@@ -146,9 +146,6 @@ export default {
       cartQuantity: 0
     }
   },
-  updated () {
-    window.scroll(0, 0)
-  },
   created () {
     this.$bus.$on('updateCart', () => {
       this.getCart()
