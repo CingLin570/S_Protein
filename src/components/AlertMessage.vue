@@ -27,6 +27,9 @@ export default {
       vm.updateMessage(message, status)
     })
   },
+  beforeDestroy () {
+    this.$bus.$off('message:push')
+  },
   methods: {
     updateMessage (message, status) {
       const timestamp = Math.floor(new Date() / 1000)
