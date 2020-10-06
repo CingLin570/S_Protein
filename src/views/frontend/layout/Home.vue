@@ -175,6 +175,9 @@ export default {
         this.isLoading = false
       })
   },
+  beforeDestroy () {
+    this.$bus.$off('updateCart')
+  },
   methods: {
     goCart () {
       this.$router.push('/cart')
