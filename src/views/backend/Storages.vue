@@ -1,4 +1,4 @@
-.<template>
+<template>
   <div>
     <loading :active.sync="isLoading"></loading>
     <h2>圖片頁面</h2>
