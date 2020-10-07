@@ -29,7 +29,7 @@
                   <span
                     v-if="errors[0]"
                     class="d-flex align-items-center text-danger"
-                    >{{ `信箱${errors[0].slice(8, errors[0].length)}` }}</span>
+                    >信箱{{ `${errors[0].slice(8, errors[0].length)}` }}</span>
                 </div>
               </validation-provider>
             </form>
