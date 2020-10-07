@@ -1,6 +1,6 @@
 <template>
   <div class="cartOrder pt-7">
-<div class="container mb-4">
+    <div class="container mb-4">
       <div class="mt-3" v-if="this.cartTotal !== 0">
         <div>
           <Progress :steps="currentStep"/>
@@ -17,32 +17,60 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="cartOrderItem border-bottom border-top text-center" v-for="item in cart" :key="item.product.id">
-                  <th scope="row" class="border-0 px-0 font-weight-normal py-4 d-sm-flex justify-content-sm-center align-items-sm-center">
-                    <img :src="item.product.imageUrl" alt="" class="cartOrderItem-img d-block d-md-inline">
-                    <p class="cartOrderItem-title mb-0 ml-md-3 font-weight-bold d-inline-block">{{item.product.title}}</p>
+                <tr
+                  class="cartOrderItem border-bottom border-top text-center"
+                  v-for="item in cart"
+                  :key="item.product.id">
+                  <th
+                    scope="row"
+                    class="border-0 px-0 font-weight-normal py-4 d-sm-flex justify-content-sm-center align-items-sm-center">
+                    <img
+                      :src="item.product.imageUrl"
+                      alt=""
+                      class="cartOrderItem-img d-block d-md-inline"/>
+                    <p class="cartOrderItem-title mb-0 ml-md-3 font-weight-bold d-inline-block">
+                      {{ item.product.title }}
+                    </p>
                   </th>
-                  <td class="border-0 align-middle" style="max-width: 160px;">
-                    <div class="input-group d-flex justify-content-center flex-column flex-xl-row">
+                  <td class="border-0 align-middle" style="max-width: 160px">
+                    <div
+                      class="input-group d-flex justify-content-center flex-column flex-xl-row">
                       <div class="input-group-prepend justify-content-center">
-                        <button class="btn btn-outline-dark border-0 p-1"
-                        type="button" id="button-addon1"
-                        @click="quantityUpdate(item.product.id, item.quantity - 1)" :disabled="item.quantity === 1">
+                        <button
+                          class="btn btn-outline-dark border-0 p-1"
+                          type="button"
+                          id="button-addon1"
+                          @click="quantityUpdate(item.product.id, item.quantity - 1)"
+                          :disabled="item.quantity === 1">
                           <i class="fas fa-minus"></i>
                         </button>
                       </div>
-                      <span class=" border-0 text-center d-block my-auto shadow-none px-0 px-sm-3">{{item.quantity}}</span>
+                      <span
+                        class="border-0 text-center d-block my-auto shadow-none px-0 px-sm-3">
+                          {{ item.quantity }}
+                        </span>
                       <div class="input-group-append justify-content-center">
-                        <button class="btn btn-outline-dark border-0 p-1"
-                        type="button" id="button-addon2"
-                        @click="quantityUpdate(item.product.id, item.quantity + 1)">
+                        <button
+                          class="btn btn-outline-dark border-0 p-1"
+                          type="button"
+                          id="button-addon2"
+                          @click="quantityUpdate(item.product.id, item.quantity + 1)">
                           <i class="fas fa-plus"></i>
                         </button>
                       </div>
                     </div>
                   </td>
-                  <td class="border-0 align-middle"><p class="mb-0 ml-auto">{{ item.product.price | total }}</p></td>
-                  <td class="border-0 align-middle"><button type="button" class="btn border-0 btn-sm" @click.prevent=" removeCartItem(item.product.id)"><i class="fas fa-times fa-lg"></i></button></td>
+                  <td class="border-0 align-middle">
+                    <p class="mb-0 ml-auto">{{ item.product.price | total }}</p>
+                  </td>
+                  <td class="border-0 align-middle">
+                    <button
+                      type="button"
+                      class="btn border-0 btn-sm"
+                      @click.prevent="removeCartItem(item.product.id)">
+                      <i class="fas fa-times fa-lg"></i>
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -53,9 +81,17 @@
               <table class="table text-muted border-bottom">
                 <tbody>
                   <tr v-for="item in cart" :key="item.product.id">
-                    <th scope="row" class="border-0 px-2 font-weight-normal text-left">{{ item.product.title }}</th>
-                    <td class="border-0 px-2  text-center">{{ item.quantity }}{{item.product.unit}}</td>
-                    <td class="text-right pl-2 pr-0 border-0 ">{{ item.product.price | total }}</td>
+                    <th
+                      scope="row"
+                      class="border-0 px-2 font-weight-normal text-left">
+                      {{ item.product.title }}
+                    </th>
+                    <td class="border-0 px-2 text-center">
+                      {{ item.quantity }}{{ item.product.unit }}
+                    </td>
+                    <td class="text-right pl-2 pr-0 border-0">
+                      {{ item.product.price | total }}
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -63,18 +99,23 @@
                 <p class="mb-0 h4 font-weight-bold">總共</p>
                 <p class="mb-0 h4 font-weight-bold">{{ cartTotal | total }}</p>
               </div>
-              <router-link to="/checkoutorder" class="btn btn-primary btn-block mt-4">結帳去</router-link>
+              <router-link
+                to="/checkoutorder"
+                class="btn btn-primary btn-block mt-4">結帳去</router-link>
             </div>
           </div>
         </div>
       </div>
       <div class="my-200 text-center" v-else>
         <h2>您的購物車沒有商品喔~</h2>
-        <router-link to="/products" class="h5 m-0"><i class="far fa-arrow-alt-circle-left mr-1"></i>繼續購物</router-link>
+        <router-link to="/products" class="h5 m-0">
+          <i class="far fa-arrow-alt-circle-left mr-1"></i>
+          繼續購物
+        </router-link>
       </div>
     </div>
     <Footer/>
-    </div>
+  </div>
 </template>
 
 <script>
@@ -91,7 +132,6 @@ export default {
       cart: [],
       cartTotal: 0,
       cartQuantity: 0,
-      isLoading: false,
       mySteps: ['購物車', '填寫訂單', '訂單確認'],
       line: 5,
       coupon: {},
@@ -117,7 +157,6 @@ export default {
           this.cartTotal += (item.product.price * item.quantity)
           this.cartQuantity += item.quantity
         })
-        this.isLoading = false
       })
     },
     quantityUpdate (id, num) {
@@ -131,6 +170,7 @@ export default {
         loader.hide()
         this.cartTotal = 0
         this.cartQuantity = 0
+        this.$bus.$emit('changeCart')
         this.getCart()
       })
     },
@@ -141,6 +181,7 @@ export default {
         loader.hide()
         this.cartTotal = 0
         this.cartQuantity = 0
+        this.$bus.$emit('changeCart')
         this.getCart()
       }).catch(() => {
         loader.hide()
