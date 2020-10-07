@@ -6,7 +6,7 @@
           class="d-flex flex-column flex-md-row justify-content-between align-items-md-center align-items-start">
           <p class="footerTitle mb-0">歡迎訂閱獲得更多搶先優惠資訊以及折扣碼</p>
           <validation-observer v-slot="{ invalid }">
-            <form action="">
+            <form action="" @submit.prevent="searchCoupon">
               <validation-provider
                 v-slot="{ errors, classes }"
                 rules="required|email"
@@ -21,9 +21,7 @@
                   <div class="input-group-append">
                     <button
                       class="btn btn-primary rounded-0"
-                      type="button"
                       id="search"
-                      @click.prevent="searchCoupon"
                       :disabled="invalid">
                       訂閱
                     </button>
@@ -85,8 +83,6 @@
 export default {
   data () {
     return {
-      coupon: {},
-      couponCode: '',
       email: ''
     }
   },
