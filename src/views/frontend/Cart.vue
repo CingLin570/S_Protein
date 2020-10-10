@@ -25,7 +25,7 @@
                     scope="row"
                     class="border-0 px-0 font-weight-normal py-4 d-sm-flex justify-content-sm-center align-items-sm-center">
                     <img
-                      :src="item.product.imageUrl"
+                      :src="item.product.imageUrl[0]"
                       alt=""
                       class="cartOrderItem-img d-block d-md-inline"/>
                     <p class="cartOrderItem-title mb-0 ml-md-3 font-weight-bold d-inline-block">
@@ -146,17 +146,24 @@ export default {
     })
     this.getCart()
   },
+  beforeDestroy () {
+    this.$bus.$off('delete')
+  },
   methods: {
     getCart () {
       const loader = this.$loading.show()
       const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}/ec/shopping`
       this.$http.get(url).then((response) => {
-        loader.hide()
         this.cart = response.data.data
         this.cart.forEach((item) => {
           this.cartTotal += (item.product.price * item.quantity)
           this.cartQuantity += item.quantity
         })
+        loader.hide()
+      }).catch((error) => {
+        const errorData = error.response.data.errors
+        this.$bus.$emit('message:push',
+        `錯誤 ${errorData}`, 'danger')
       })
     },
     quantityUpdate (id, num) {
@@ -167,27 +174,31 @@ export default {
         quantity: num
       }
       this.$http.patch(url, data).then((response) => {
-        loader.hide()
         this.cartTotal = 0
         this.cartQuantity = 0
         this.$bus.$emit('changeCart')
         this.getCart()
+        loader.hide()
+      }).catch((error) => {
+        const errorData = error.response.data.errors
+        this.$bus.$emit('message:push',
+        `錯誤 ${errorData}`, 'danger')
       })
     },
     removeCartItem (id) {
       const loader = this.$loading.show()
       const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}/ec/shopping/${id}`
       this.$http.delete(url).then(() => {
-        loader.hide()
         this.cartTotal = 0
         this.cartQuantity = 0
         this.$bus.$emit('changeCart')
         this.getCart()
-      }).catch(() => {
         loader.hide()
+      }).catch(() => {
         this.$bus.$emit('message:push',
           '刪除產品失敗',
           'danger')
+        loader.hide()
       })
     }
   }
