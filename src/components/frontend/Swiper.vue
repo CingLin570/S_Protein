@@ -78,7 +78,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .vh{
   height: 100vh;
 }
@@ -134,11 +134,6 @@ export default {
 .swiper-button-next:hover,.swiper-button-prev:hover{
   background-color: rgba(0,0,0,0.7);
 }
-/* @media (min-width: 992px) {
-  .swiper-container {
-    height: 100vh;
-}
-} */
 .homeNew{
   object-fit: cover;
 }

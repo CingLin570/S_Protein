@@ -3,14 +3,18 @@
     <div class="row">
       <div class="col-12 col-md-6 col-xl-3" v-for="(item, index) in top8" :key="index">
           <div class="card text-left border-0 mb-4">
-            <a href="#" class="productSearch bg-primary p-2"><i class="fas fa-search fa-2x text-white"></i></a>
-            <img :src="item.imgUrl" class="card-img-top" alt="">
+            <router-link :to="`/product/${item.id}`" class="productSearch bg-primary p-2">
+              <i class="fas fa-search fa-2x text-black"></i>
+            </router-link>
+            <router-link :to="`/product/${item.id}`">
+              <img :src="item.imgUrl" class="card-img-top img-fluid" alt="">
+            </router-link>
           <div class="card-body p-3 transforms position-relative bg-primary">
             <p class="hotproduct-title card-title">{{ item.title }}</p>
             <p class="card-text d-flex justify-content-between"><span class="text-danger h5">{{ item.price | total }}</span><del>{{ item.origin_price | total }}</del></p>
           </div>
           <div class="card-footer actions">
-            <router-link :to="`/product/${item.id}`" class="btn btn-primary">詳細產品與購買</router-link>
+            <router-link :to="`/product/${item.id}`" class="btn btn-primary text-black">詳細產品與購買</router-link>
           </div>
         </div>
       </div>
@@ -82,7 +86,7 @@ export default {
         {
           id: 'QmINYurFL5zaIf8ikcExWeF8QerNMgeqfkkQmDhTlgwxY59aRLjIUUG9G2Ghgs1I',
           title: '壺鈴(16kg)',
-          imgUrl: 'https://hexschool-api.s3.us-west-2.amazonaws.com/custom/bOFF3opURsWBl9g3yr3roMuMjCYHmyNrDebTTBa33XwFORhamYf4SzmvqvvmYXe7IvN3ChW3uqOweYLt4v2qM51v1SL9bKWeAmtIaIJP3khReKFlcv6ud0pCCvFLctck.jpg',
+          imgUrl: 'https://hexschool-api.s3.us-west-2.amazonaws.com/custom/nWlDCQFHxUiYLHcC4Nmu4dxniAPPB5IfXNXvf9lUSbpY2X0XwRgGS1Va4fUafED8LavhZvr1JvUnuUCMSYflnKBk08XN3yE4zhQWPYNGi1Sc03leuUg5IFjPYLTDb4uG.jpg',
           price: 3199,
           origin_price: 3500,
           unit: '個'

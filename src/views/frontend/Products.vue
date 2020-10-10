@@ -67,9 +67,11 @@
               :key="item.id">
               <div class="card text-left border-0 mb-4">
                 <a href="#" class="productSearch bg-primary p-2" @click.prevent="goPage(item.id)">
-                  <i class="fas fa-search fa-2x text-white"></i>
+                  <i class="fas fa-search fa-2x text-black"></i>
                 </a>
-                <img :src="item.imageUrl" class="productImg card-img-top" alt />
+                <a href="#" @click.prevent="goPage(item.id)">
+                  <img :src="item.imageUrl[0]" class="img-fluid card-img-top" alt />
+                </a>
                 <div class="card-body transforms position-relative bg-primary">
                   <p class="card-title">{{ item.title }}</p>
                   <p class="card-text d-flex justify-content-between">
@@ -78,7 +80,7 @@
                   </p>
                 </div>
                 <div class="card-footer actions">
-                  <a href="#" class="btn btn-primary" @click.prevent="goPage(item.id)">詳細產品與購買</a>
+                  <a href="#" class="btn btn-primary text-black" @click.prevent="goPage(item.id)">詳細產品與購買</a>
                 </div>
               </div>
             </div>
@@ -129,13 +131,14 @@ export default {
       const loader = this.$loading.show()
       this.$http.get(`${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}/ec/products?page=${page}&paged=${paged}`)
         .then((response) => {
-          loader.hide()
           this.products = response.data.data
           this.pagination = response.data.meta.pagination
+          loader.hide()
         }).catch((err) => {
           this.$bus.$emit('message:push',
             `${err.response.data.errors}`,
             'danger')
+          loader.hide()
         })
     }
   },
@@ -147,26 +150,8 @@ export default {
 
 <style lang="scss" scoped>
 .products{
-  .productImg{
-    height: 200px;
-  }
   .card-text{
     font-size: 14px;
-  }
-  @media (min-width: 576px) {
-    .productImg{
-    height: 500px;
-  }
-  }
-  @media (min-width: 768px) {
-    .productImg{
-      height: 270px;
-  }
-  }
-  @media (min-width: 992px) {
-    .productImg{
-      height: 200px;
-  }
   }
   .transforms{
     transition: all 0.7s;

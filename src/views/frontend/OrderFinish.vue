@@ -10,16 +10,16 @@
             <div class="card-body pt-0 px-0">
               <table class="table">
                 <thead class="thead-dark">
-                  <tr>
+                  <tr class="text-center">
                     <th scope="col">購買品項</th>
                     <th scope="col">購買數量</th>
                     <th scope="col">購買總價</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr class="ordercontent" v-for="(item, i) in order.products" :key="i">
+                <tbody class="text-center">
+                  <tr class="ordercontent text-center" v-for="(item, i) in order.products" :key="i">
                     <th class="px-0 ordercontent-item">
-                      <img :src="item.product.imageUrl" height="70px" alt />
+                      <img :src="item.product.imageUrl[0]" height="70px" alt />
                       <p class="m-0">{{ item.product.title }}</p>
                     </th>
                     <td
@@ -64,7 +64,7 @@
                   </tr>
                 </tbody>
               </table>
-              <div>
+              <div class="d-flex justify-content-center">
                 <button type="button" class="btn btn-primary" @click="payingOrder">確認付款</button>
               </div>
             </div>
@@ -123,25 +123,28 @@ export default {
       const loader = this.$loading.show()
       const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}/ec/orders/${this.pageId}`
       this.$http.get(url).then((response) => {
-        loader.hide()
-        console.log(response.data.data)
         this.order = response.data.data
+        loader.hide()
+      }).catch((error) => {
+        const errorData = error.response.data.errors
+        this.$bus.$emit('message:push',
+        `錯誤 ${errorData}`, 'danger')
       })
     },
     payingOrder () {
       const loader = this.$loading.show()
       const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}/ec/orders/${this.pageId}/paying`
       this.$http.post(url).then(() => {
-        loader.hide()
         this.$bus.$emit('message:push',
           '訂單建立成功',
           'success')
         this.$router.push('/ordersuccess')
-      }).catch(() => {
         loader.hide()
+      }).catch(() => {
         this.$bus.$emit('message:push',
           '訂單建立失敗',
           'danger')
+        loader.hide()
       })
     }
   }

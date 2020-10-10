@@ -20,7 +20,7 @@
         <tbody>
           <tr v-for="item in products" :key="item.id">
         <th scope="row"><button type="button" class="btn btn-outline-danger btn-sm" @click="openModel('remove',item)">刪除</button></th>
-        <td><img :src="item.imageUrl" class="img-fluid" style="height:100px" alt=""></td>
+        <td><img :src="item.imageUrl[0]" class="img-fluid" style="height:100px" alt=""></td>
         <td>{{item.category}}</td>
         <td>{{item.title}}</td>
         <td>{{item.origin_price | total}}</td>
@@ -349,7 +349,6 @@ export default {
           `檔案上傳失敗惹，好糗Σ( ° △ °|||)︴
           請檢查是不是檔案大小超過 2MB`,
           'danger')
-
         this.status.fileUploading = false
       })
     },

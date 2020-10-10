@@ -1,36 +1,43 @@
 <template>
   <div class="about">
-    <div class="aboutBanner mb-5 position-relative d-flex justify-content-center align-items-center">
+    <div
+      class="aboutBanner mb-5 position-relative d-flex justify-content-center align-items-center">
       <div class="aboutTitle">
-        <h2 class="text-white h1 text-center">關於我們</h2>
-        <span class="text-white h2">一路走來強大的秘訣</span>
+        <h2 class="text-black h1 text-center">關於我們</h2>
+        <span class="text-black h2">一路走來強大的秘訣</span>
       </div>
     </div>
     <section class="aboutBrand container">
       <div class="row">
         <div class="col-12 col-md-7">
           <div class="mb-5 d-flex flex-column">
-            <h3 class="aboutBrand-title text-md-left text-center mb-4">我們的堅持</h3>
+            <h3 class="aboutBrand-title text-md-left text-center mb-4">
+              我們的堅持
+            </h3>
             <p class="aboutBrand-text text-left h4 line-height-lg">
               選用最好的品質，帶給所有健身愛好者與選手更好的訓練品質，產品使用IPF與IWF標準來製造器材
               比賽專用品牌，好的品質帶給所有使用者更安全的保護，這也是我們的堅持，希望帶給健身界更多
-              高品質器材，讓使用者更安全更強壯。</p>
+              高品質器材，讓使用者更安全更強壯。
+            </p>
           </div>
         </div>
       </div>
     </section>
     <section class="ourPresist position-relative d-flex">
-      <div class="ourPresist-content d-flex flex-column w-100 align-items-center justify-content-center">
+      <div
+        class="ourPresist-content d-flex flex-column w-100 align-items-center justify-content-center">
         <div class="container">
-          <h3 class="text-center h2 mb-4 text-white">品牌理念</h3>
-          <p class="ourPresist-text h4 line-height-lg text-white">一路走來，帶來各式各樣的運動器材，
-          想要的就是掀起健身的風潮，讓更多的人加入我們健身的行列，
-          我們不但一直透過研發帶來更好的健身器材，讓更多的人體驗到我們器材的品質，
-          我們不但要讓更多人了解我們器材的不同，也要帶來更多關於健身的知識。</p>
+          <h3 class="text-center h2 mb-4 text-black">品牌理念</h3>
+          <p class="ourPresist-text h4 line-height-lg text-black">
+            一路走來，帶來各式各樣的運動器材，
+            想要的就是掀起健身的風潮，讓更多的人加入我們健身的行列，
+            我們不但一直透過研發帶來更好的健身器材，讓更多的人體驗到我們器材的品質，
+            我們不但要讓更多人了解我們器材的不同，也要帶來更多關於健身的知識。
+          </p>
         </div>
       </div>
     </section>
-    <Footer/>
+    <Footer />
   </div>
 </template>
 

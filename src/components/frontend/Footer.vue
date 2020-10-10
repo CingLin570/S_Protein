@@ -20,7 +20,7 @@
                     :class="classes"/>
                   <div class="input-group-append">
                     <button
-                      class="btn btn-primary rounded-0"
+                      class="btn btn-primary text-black rounded-0"
                       id="search"
                       :disabled="invalid">
                       訂閱
@@ -55,13 +55,13 @@
             </li>
             <li>
               <a
-              href="https://www.instagram.com/"
+              href="https://www.instagram.com/cinglin54570/"
               class="text-primary mx-2 mx-md-3">
                 <i class="fab fa-instagram"></i>
               </a>
             </li>
             <li>
-              <a href="https://github.com/" class="text-primary ml-2 ml-md-3">
+              <a href="https://github.com/CingLin570/s_protein" class="text-primary ml-2 ml-md-3">
                 <i class="fab fa-github"></i>
               </a>
             </li>

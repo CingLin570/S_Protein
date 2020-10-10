@@ -243,8 +243,6 @@
                         @click="quantityUpdata(item.product.id, item.quantity - 1)"
                         :disabled="item.quantity === 1"
                       >-</button>
-                      <!-- <input id="inlineFormInputGroupUsername" type="number" min=1 class="form-control text-center"
-                      :value="item.quantity" @change.prevent="quantityUpdata(item.product.id, $event.target.value)">-->
                       <span class="m-2">{{item.quantity}}</span>
                       <button
                         class="btn btn-sm btn-outline-primary ml-2"

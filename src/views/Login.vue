@@ -68,7 +68,6 @@ export default {
       const url = `${process.env.VUE_APP_APIPATH}/api/auth/login`
       this.$http.post(url, this.user)
         .then((response) => {
-          console.log(response)
           this.isLoading = false
           const expired = response.data.expired
           const token = response.data.token

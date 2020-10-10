@@ -1,7 +1,7 @@
 <template>
   <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
-    <li class="page-item" :class="{disabled:pages.current_page === 1}">
+    <li class="page-item" :class="{ disabled:pages.current_page === 1 }">
       <a class="page-link" href="#" tabindex="-1" aria-disabled="true"
       @click.prevent="emitPages(pages.current_page - 1)"><i class="fas fa-angle-left"></i></a>
     </li>
