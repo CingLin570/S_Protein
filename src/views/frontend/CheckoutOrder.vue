@@ -18,12 +18,13 @@
                   v-model="form.name"
                   type="text"
                   class="form-control"
+                  placeholder="請輸入姓名"
                   :class="classes"
                 />
                 <span
                   v-if="errors[0]"
                   class="text-danger"
-                >{{ `收件人姓名${errors[0].slice(9, errors[0].length)}` }}</span>
+                >收件人姓名{{ `${errors[0].slice(9, errors[0].length)}` }}</span>
               </validation-provider>
             </div>
             <div class="form-group">
@@ -34,22 +35,28 @@
                   v-model="form.email"
                   type="email"
                   class="form-control"
+                  placeholder="請輸入電子信箱"
                   :class="classes"
                 />
                 <span
                   v-if="errors[0]"
                   class="text-danger"
-                >{{ `信箱${errors[0].slice(6,errors[0].length)}` }}</span>
+                >信箱{{ `${errors[0].slice(6,errors[0].length)}` }}</span>
               </validation-provider>
             </div>
             <div class="form-group">
               <validation-provider v-slot="{ errors, classes }" rules="required|min:8|numeric">
                 <label for="tel">電話</label>
-                <input id="tel" v-model="form.tel" type="tel" class="form-control" :class="classes" />
+                <input id="tel"
+                v-model="form.tel"
+                type="tel"
+                class="form-control"
+                placeholder="請輸入電話"
+                :class="classes" />
                 <span
                   v-if="errors[0]"
                   class="text-danger"
-                >{{ `電話${errors[0].slice(4, errors[0].length)}`}}</span>
+                >電話{{ `${errors[0].slice(4, errors[0].length)}` }}</span>
               </validation-provider>
             </div>
             <div class="form-group">
@@ -60,12 +67,13 @@
                   v-model="form.address"
                   type="text"
                   class="form-control"
+                  placeholder="請輸入地址"
                   :class="classes"
                 />
                 <span
                   v-if="errors[0]"
                   class="text-danger"
-                >{{ `地址${errors[0].slice(8, errors[0].length)}` }}</span>
+                >地址{{ `${errors[0].slice(8, errors[0].length)}` }}</span>
               </validation-provider>
             </div>
             <div class="form-group">
@@ -120,6 +128,7 @@
               <input type="text" class="form-control rounded-0 border shadow-none mr-3"
               aria-label="Recipient's username"
               aria-describedby="button-addon2"
+              placeholder="請輸入促銷代碼"
               v-model="couponCode">
               <div class="input-group-append">
                 <button class="btn btn-outline-primary rounded-0"
@@ -185,13 +194,12 @@ export default {
       const loader = this.$loading.show()
       const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}/ec/shopping`
       this.$http.get(url).then((response) => {
-        loader.hide()
         this.cart = response.data.data
         this.cart.forEach((item) => {
           this.cartTotal += (item.product.price * item.quantity)
           this.cartQuantity += item.quantity
         })
-        this.isLoading = false
+        loader.hide()
       })
     },
     // 查詢優惠卷
@@ -199,24 +207,24 @@ export default {
       const loader = this.$loading.show()
       const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}/ec/coupon/search`
       this.$http.post(url, { code: this.couponCode }).then((response) => {
-        loader.hide()
         this.$bus.$emit('message:push',
           '優惠卷新增成功',
           'success')
         this.coupon = response.data.data
-      }).catch((error) => {
         loader.hide()
+      }).catch((error) => {
         const errorData = error.response.data.errors
         if (errorData) {
           errorData.code.forEach((err) => {
             this.$bus.$emit('message:push',
             `優惠碼錯誤 ${err}`, 'danger')
           })
+          loader.hide()
         } else {
-          this.isLoading = false
           const { message } = error.response.data
           this.$bus.$emit('message:push',
             `優惠碼錯誤 ${message}`, 'danger')
+          loader.hide()
         }
       })
     },
@@ -233,11 +241,11 @@ export default {
       }
       this.$http.post(url, order).then((response) => {
         if (response.data.data.id) {
-          loader.hide()
-          this.$bus.$emit('updateCart')
+          this.$bus.$emit('changeCart')
           this.$bus.$emit('message:push', '訂單建立成功囉~',
             'success')
           this.$router.push(`/orderfinish/${response.data.data.id}`)
+          loader.hide()
         }
       }).catch((error) => {
         const errorData = error.response.data.errors
@@ -246,12 +254,9 @@ export default {
             `建立訂單失敗${err}`,
             'danger')
         })
-        this.isLoading = false
+        loader.hide()
       })
     }
   }
 }
 </script>
-
-<style>
-</style>
