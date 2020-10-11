@@ -95,6 +95,8 @@ Vue-step-progress
 
 ![image4](https://github.com/CingLin570/s_proteinPicture/blob/master/5.PNG?raw=true)
 
+### 進入購物車頁面，可觀看選擇的商品並可增加或減少數量，不想要的時候可直接移除購物車商品。
+
 ![image5](https://github.com/CingLin570/s_proteinPicture/blob/master/6.PNG?raw=true)
 
 ![image6](https://github.com/CingLin570/s_proteinPicture/blob/master/7.PNG?raw=true)
