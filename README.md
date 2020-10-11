@@ -81,7 +81,7 @@ Vue-step-progress
 
 ## 網頁流程功能介紹
 
-進入首頁，使用swiper動態切換圖片，觀看最新動態
+進入首頁，使用swiper動態切換圖片，觀看最新動態以及觀看熱門產品，使用aos視差滾動效果
 
 ![image1](https://github.com/CingLin570/s_proteinPicture/blob/master/2.1.png?raw=true)
 
