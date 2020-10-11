@@ -81,7 +81,9 @@ Vue-step-progress
 
 ## 網頁流程功能介紹
 
-![image1](https://github.com/CingLin570/s_proteinPicture/blob/master/2.PNG?raw=true)
+進入首頁，使用swiper動態切換圖片，觀看最新動態
+
+![image1](https://github.com/CingLin570/s_proteinPicture/blob/master/2.1.png?raw=true)
 
 ![image2](https://github.com/CingLin570/s_proteinPicture/blob/master/3.PNG?raw=true)
 
