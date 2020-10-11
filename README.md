@@ -1,6 +1,6 @@
 ## 前台頁面
 
-https://cinglin570.github.io/s_protein/index.html#/
+https://cinglin570.github.io/s_protein/#/
 
 #/ 前台模擬的
 
