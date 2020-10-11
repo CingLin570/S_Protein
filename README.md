@@ -66,6 +66,7 @@ Vue-loading-overlay
 Vue-backtotop
 Vue-step-progress
 
+
 ## Project setup
 ```
 npm install
