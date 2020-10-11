@@ -87,6 +87,8 @@ Vue-step-progress
 
 ![image2](https://github.com/CingLin570/s_proteinPicture/blob/master/3.PNG?raw=true)
 
+進入產品頁面，可點擊商品進入單一產品頁面，左側選單可過濾產品項目
+
 ![image3](https://github.com/CingLin570/s_proteinPicture/blob/master/4.PNG?raw=true)
 
 ![image4](https://github.com/CingLin570/s_proteinPicture/blob/master/5.PNG?raw=true)
