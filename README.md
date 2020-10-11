@@ -81,17 +81,17 @@ Vue-step-progress
 
 ## 網頁流程功能介紹
 
-進入首頁，使用swiper動態切換圖片，觀看最新動態以及觀看熱門產品，使用aos視差滾動效果。
+### 進入首頁，使用swiper動態切換圖片，觀看最新動態以及觀看熱門產品，使用aos視差滾動效果。
 
 ![image1](https://github.com/CingLin570/s_proteinPicture/blob/master/2.1.png?raw=true)
 
 ![image2](https://github.com/CingLin570/s_proteinPicture/blob/master/3.1.png?raw=true)
 
-進入產品頁面，可點擊商品進入單一產品頁面，左側選單可過濾產品項目。
+### 進入產品頁面，可點擊商品進入單一產品頁面，左側選單可過濾產品項目。
 
 ![image3](https://github.com/CingLin570/s_proteinPicture/blob/master/4.PNG?raw=true)
 
-進入單一產品頁面，可點選數量加入購物車，產品圖片可放大觀看，觀看產品詳細圖片。
+### 進入單一產品頁面，可點選數量加入購物車，產品圖片可放大觀看，觀看產品詳細圖片。
 
 ![image4](https://github.com/CingLin570/s_proteinPicture/blob/master/5.PNG?raw=true)
 
