@@ -48,22 +48,35 @@ https://cinglin570.github.io/s_protein/index.html#/
 ## 使用技術
 
 1.Vue CLI 4
+
 2.Vue Router
+
 3.Vue Components
+
 4.RESTful APIs
+
 5.RWD
+
 6.Bootstrap 4
+
 7.JavaScript (ES6)
+
 8.ESlint (Standard)
 
 ## 使用 Plugins
 
 AOS
+
 Bootstrap-Vue
+
 Vue-awesome-swiper
+
 Vue-axios
+
 Vue-loading-overlay
+
 Vue-backtotop
+
 Vue-step-progress
 
 
