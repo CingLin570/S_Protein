@@ -99,6 +99,8 @@ Vue-step-progress
 
 ![image5](https://github.com/CingLin570/s_proteinPicture/blob/master/6.PNG?raw=true)
 
+### 進入填寫訂單程序，輸入折扣碼，訂單填寫驗證，以及必填項目必須填寫完成才可進去訂單確認
+
 ![image6](https://github.com/CingLin570/s_proteinPicture/blob/master/7.PNG?raw=true)
 
 ![image7](https://github.com/CingLin570/s_proteinPicture/blob/master/8.PNG?raw=true)
