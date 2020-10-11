@@ -79,7 +79,23 @@ Vue-backtotop
 
 Vue-step-progress
 
+![image1](https://github.com/CingLin570/s_proteinPicture/blob/master/2.PNG?raw=true)
 
+![image2](https://github.com/CingLin570/s_proteinPicture/blob/master/3.PNG?raw=true)
+
+![image3](https://github.com/CingLin570/s_proteinPicture/blob/master/4.PNG?raw=true)
+
+![image4](https://github.com/CingLin570/s_proteinPicture/blob/master/5.PNG?raw=true)
+
+![image5](https://github.com/CingLin570/s_proteinPicture/blob/master/6.PNG?raw=true)
+
+![image6](https://github.com/CingLin570/s_proteinPicture/blob/master/7.PNG?raw=true)
+
+![image7](https://github.com/CingLin570/s_proteinPicture/blob/master/8.PNG?raw=true)
+
+![image8](https://github.com/CingLin570/s_proteinPicture/blob/master/9.PNG?raw=true)
+
+![image9](https://github.com/CingLin570/s_proteinPicture/blob/master/10.PNG?raw=true)
 ## Project setup
 ```
 npm install
