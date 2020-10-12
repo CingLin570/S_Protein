@@ -109,6 +109,8 @@ Vue-step-progress
 
 ![image7](https://github.com/CingLin570/s_proteinPicture/blob/master/8.PNG?raw=true)
 
+### 進入訂單確認程序，確認購物項目是否有誤，點選送出訂單，建立新的訂單
+
 ![image8](https://github.com/CingLin570/s_proteinPicture/blob/master/9.PNG?raw=true)
 
 ![image9](https://github.com/CingLin570/s_proteinPicture/blob/master/10.PNG?raw=true)
