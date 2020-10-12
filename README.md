@@ -93,11 +93,13 @@ Vue-step-progress
 
 ### 進入單一產品頁面，可點選數量加入購物車，產品圖片可放大觀看，觀看產品詳細圖片。
 
-![image4](https://github.com/CingLin570/s_proteinPicture/blob/master/5.PNG?raw=true)
+![image4](https://github.com/CingLin570/s_proteinPicture/blob/master/5.1.png?raw=true)
 
 ### 進入購物車頁面，可觀看選擇的商品並可增加或減少數量，不想要的時候可直接移除購物車商品。
 
-![image5](https://github.com/CingLin570/s_proteinPicture/blob/master/6.PNG?raw=true)
+![image5](https://github.com/CingLin570/s_proteinPicture/blob/master/6.1.PNG?raw=true)
+
+![image5](https://github.com/CingLin570/s_proteinPicture/blob/master/6.2.png?raw=true)
 
 ### 進入填寫訂單程序，輸入折扣碼，訂單填寫驗證，以及必填項目必須填寫完成才可進去訂單確認
 
