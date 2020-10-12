@@ -105,11 +105,11 @@ Vue-step-progress
 
 ![image6](https://github.com/CingLin570/s_proteinPicture/blob/master/7.PNG?raw=true)
 
-### 進入訂單資料填寫程序，必須輸入必填項目才可進行至下一步，使用 vee-validate 來判斷是否正確
+### 進入訂單資料填寫程序，必須輸入必填項目才可進行至下一步，並建立新的訂單，使用 vee-validate 來判斷是否正確
 
 ![image7](https://github.com/CingLin570/s_proteinPicture/blob/master/8.PNG?raw=true)
 
-### 進入訂單確認程序，確認購物項目是否有誤，點選送出訂單，建立新的訂單
+### 進入訂單確認程序，確認購物項目是否有誤，點選確認付款，修改訂單為已付款
 
 ![image8](https://github.com/CingLin570/s_proteinPicture/blob/master/9.PNG?raw=true)
 
