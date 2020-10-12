@@ -43,7 +43,7 @@ https://cinglin570.github.io/s_protein/#/
 
 3.加入路徑 router-link or $router.push
 
-使用的是絕對路徑，必須到vue ui設定裡更改(公開路徑)，改成  /hexschool-jsClass/demo_project/dist/
+使用的是絕對路徑，必須到vue ui設定裡更改(公開路徑)，改成  ./
 
 ## 使用技術
 
