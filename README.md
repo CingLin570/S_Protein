@@ -105,6 +105,8 @@ Vue-step-progress
 
 ![image6](https://github.com/CingLin570/s_proteinPicture/blob/master/7.PNG?raw=true)
 
+### 進入訂單資料填寫程序，必須輸入必填項目才可進行至下一步，使用 vee-validate 來判斷是否正確
+
 ![image7](https://github.com/CingLin570/s_proteinPicture/blob/master/8.PNG?raw=true)
 
 ![image8](https://github.com/CingLin570/s_proteinPicture/blob/master/9.PNG?raw=true)
